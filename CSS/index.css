@@ -1,0 +1,77 @@
+/* Desactiva todas las utilidades de Bootstrap */
+[class^="m-"], [class*=" m-"],
+[class^="p-"], [class*=" p-"],
+[class^="text-"], [class*=" text-"],
+[class^="d-"], [class*=" d-"],
+[class^="flex-"], [class*=" flex-"] {
+    all: unset !important; /* Elimina estilos de Bootstrap */
+}
+
+
+
+body { 
+    background: linear-gradient(to bottom, #E2E6FF 20%, #9AA2FF 62%, #4362FF 100%); 
+    
+}
+
+.body{
+
+    background-image: url("../Assets/white_background.svg") !important;
+    background-size: 25%, 35%;
+    height: 100vh;
+    width: 100%;
+    z-index: -2;
+    background-position: center 75%;
+    background-repeat: no-repeat;
+    
+
+}
+
+
+#btnLog, #btnReg {
+    height: 6vh;
+    color: white;
+    font-family: "Nunito", serif;
+    border: 2px solid #5985E1;
+    background-color: #5985E1;
+    border-radius: 0.4em;
+    cursor: pointer;
+    transition: all ease-in-out 0.2s;
+    font-size: 100%;
+}
+  
+button span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 600;
+}
+  
+#btnLog:hover, #btnReg:hover {
+    background-color: #5ca8f5;
+    border-color: #5ca8f5;
+    transform: scale(1.05); /* Agrega un efecto de crecimiento sutil */
+}
+
+  
+
+.items {
+    display: flex;
+    height: 60%;
+    gap: 90%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 1000px;
+    padding: 140px;
+
+    margin: 60px auto 0; 
+}
+
+
+.col-3{
+    margin-top: 10px;
+    gap: 40px;
+}
