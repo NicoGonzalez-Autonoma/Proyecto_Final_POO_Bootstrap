@@ -7,7 +7,7 @@ $('#updateopenProfile').click(function (e) {
 
 
 $('#updatecloseProfile').click(function () {
-    $('updatemodalProfile').fadeOut();
+    $('#updatemodalProfile').fadeOut();
 });
 
 
