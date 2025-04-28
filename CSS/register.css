@@ -151,61 +151,7 @@ img {
 }
 
 
-.error,
-.success {
-    z-index: 100;
-    position: absolute;
-    top: 2%;
-    display: flex;
-    justify-content: center;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgb(207, 23, 23);
-    color: white;
-    height: 40px;
-    border-radius: 10px;
-    padding: 10px 20px;
-    font-weight: bold;
-    animation: quitar_mensaje 7s ease forwards;
-}
 
-.error {
-    background-color: rgb(207, 23, 23);
-    color: white;
-}
-
-.success {
-    background-color: rgba(0, 86, 205, 255);
-    color: white;
-}
-
-.error,
-.success {
-    z-index: 100;
-    position: absolute;
-    top: 2%;
-    display: flex;
-    justify-content: center;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgb(207, 23, 23);
-    color: white;
-    height: 40px;
-    border-radius: 10px;
-    padding: 10px 20px;
-    font-weight: bold;
-    animation: quitar_mensaje 7s ease forwards;
-}
-
-.error {
-    background-color: rgb(207, 23, 23);
-    color: white;
-}
-
-.success {
-    background-color: rgba(0, 86, 205, 255);
-    color: white;
-}
 
 /* Media query para pantallas pequeñas */
 @media (max-width: 768px) {
@@ -269,4 +215,24 @@ a{
 
 p{
     color: black;
+}
+
+.swal2-popup {
+    border-radius: 15px !important;
+    font-family: "Nunito", serif !important;
+}
+
+.swal2-title,
+.swal2-content {
+    color: rgba(0, 86, 205, 1) !important;
+}
+
+.swal2-confirm {
+    background-color: rgba(0, 86, 205, 1) !important;
+    border-radius: 20px !important;
+}
+
+html.swal2-height-auto {
+    height: 100vh !important;
+    display: flex;
 }

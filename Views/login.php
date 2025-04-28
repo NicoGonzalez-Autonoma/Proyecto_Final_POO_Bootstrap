@@ -20,14 +20,6 @@ unset($_SESSION['error'], $_SESSION['success']);
 </head>
 
 <body>
-    <div id="result">
-        <?php if (!empty($error)): ?>
-            <p class="error"><?= htmlspecialchars($error) ?></p>
-        <?php endif; ?>
-        <?php if (!empty($success)): ?>
-            <p class="success"><?= htmlspecialchars($success) ?></p>
-        <?php endif; ?>
-    </div>
     <div class="container  d-flex align-items-center">
         <div class="row justify-content-center">
             <div class="col-12">
@@ -68,6 +60,7 @@ unset($_SESSION['error'], $_SESSION['success']);
     <!-- Bootstrap Bundle with Popper -->
 </body>
 <script src="../JS/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../JS/main.js"></script>
 <script src="../JS/login.js"></script>
 

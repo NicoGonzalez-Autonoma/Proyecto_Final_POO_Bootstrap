@@ -1,6 +1,6 @@
 <?php
 class DbConfig {
-    private $host = 'localhost';
+    private $host = '127.0.0.1:3306';
     private $db_name = 'agenda2';
     private $username = 'root';
     private $password = '';

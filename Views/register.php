@@ -33,7 +33,7 @@ unset($_SESSION['error']);
                     </div>
                     <h4 class="register-title">Registrarse</h4>
 
-                    <form id="RegisterForm" action="../backend/register.php" method="POST">
+                    <form id="registerForm" method="post" >
                         <div class="mb-3">
                             <label for="name" class="form-label">Nombre:</label>
                             <input type="name" class="form-control" id="nombre" name="name"  placeholder="">
@@ -63,6 +63,9 @@ unset($_SESSION['error']);
     </div>
 
     <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/register.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 

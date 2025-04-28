@@ -3,7 +3,7 @@ $('#openProfile').click(function (e) {
     $('#modalProfile').fadeIn(); // o .show()
 });
 
-$('#closeProfile, #closeProfile2').click(function () {
+$('#closeProfile').click(function () {
     $('#modalProfile').fadeOut(); // o .hide()
 });
 

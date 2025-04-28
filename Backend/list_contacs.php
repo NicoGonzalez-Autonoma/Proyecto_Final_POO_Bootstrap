@@ -9,9 +9,10 @@ function getUserContacts($conn, $user_id, $filter = '') {
     if (!empty($filter)) {
         if ($filter === 'favorites') {
             $sql .= " AND is_favorite = 1";
-        } else {
-            // Filtrar por etiqueta
-            $sql .= " AND label = :label";
+        } else if ($filter === 'etiquetas') {
+            $sql .= " AND label IS NOT NULL AND label != ''";
+        } else if ($filter === 'direcciones') {
+            $sql .= " AND address IS NOT NULL AND address != ''";
         }
     }
     
@@ -22,13 +23,8 @@ function getUserContacts($conn, $user_id, $filter = '') {
         
         $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
         
-        if (!empty($filter) && $filter !== 'favorites') {
-            $stmt->bindParam(':label', $filter, PDO::PARAM_STR);
-        }
-        
         $stmt->execute();
         
-
         $contacts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
         return $contacts;
@@ -37,8 +33,6 @@ function getUserContacts($conn, $user_id, $filter = '') {
         return [];
     }
 }
-
-
 function countUserContacts($conn, $user_id) {
     try {
         $stmt = $conn->prepare("SELECT COUNT(*) as total FROM contacts WHERE user_id = :user_id");

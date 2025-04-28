@@ -1,61 +1,52 @@
-/* document.addEventListener("DOMContentLoaded", function () {
-    const loginForm = document.getElementById("loginForm");
-
-    loginForm.addEventListener("submit", async function (event) {
-        event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
-
-        const formData = new FormData(loginForm);
-
-        try {
-            const response = await fetch("../backend/login.php", {
-                method: "POST",
-                body: formData
-            });
-
-            const result = await response.json();
-
-            if (result.status === "success") {
-                // Redirigir al dashboard si el login es exitoso
-                window.location.href = result.redirect || "dashboard.php";
-            } else {
-                // Mostrar mensaje de error si el login falla
-                alert(result.message);
-            }
-        } catch (error) {
-            console.error("Error en la autenticación:", error);
-            alert("Hubo un problema con el servidor. Inténtelo más tarde.");
-        }
-    });
-});
- */
-
-$(document).ready(function () {
-    $('#loginForm').on('submit', function (e) {
-        e.preventDefault(); // Previene el envío tradicional
-
+$(document).ready(function() {
+    $('#loginForm').on('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = $(this).serialize();
+        
         $.ajax({
             url: '../backend/login.php',
             type: 'POST',
-            data: $(this).serialize(), // Serializa los campos del formulario
+            data: formData,
             dataType: 'json',
-            success: function (response) {
+            success: function(response) {
+                console.log("Respuesta del servidor:", response);
+                
+                // Si el login fue exitoso
                 if (response.status === 'success') {
-                    // Redirigir al dashboard si el login es exitoso
-                    window.location.href = response.redirect || 'dashboard.php';
+                    Swal.fire({
+                        title: response.title || '¡Bienvenido!',
+                        text: response.message || 'Login exitoso',
+                        icon: 'success',
+                        timer: response.timer || 20000,
+                        showConfirmButton: false
+                    }).then(() => {
+                        window.location.href = "../views/dashboard.php";
+                    });
                 } else {
-                    // Mostrar mensaje de error si el login falla
-                    alert(response.message);
+                    // Si hubo error, mostrar botón "OK" y no usar timer
+                    Swal.fire({
+                        title: response.title || 'Error',
+                        text: response.message || 'Ocurrió un error durante la autenticación',
+                        icon: 'error',
+                        showConfirmButton: true,
+                        confirmButtonText: 'OK'
+                    });
                 }
             },
-            error: function (xhr, status, error) {
-                console.error("Error en la autenticación:", error);
-                alert("Hubo un problema con el servidor. Inténtelo más tarde.");
+            error: function(xhr, status, error) {
+                console.error("Error en la petición AJAX:", error);
+                console.error("Estado HTTP:", xhr.status);
+                console.error("Respuesta del servidor:", xhr.responseText);
+                
+                Swal.fire({
+                    title: 'Error de conexión',
+                    text: "Hubo un problema con el servidor. Inténtelo más tarde.",
+                    icon: 'error',
+                    showConfirmButton: true,
+                    confirmButtonText: 'OK'
+                });
             }
         });
     });
 });
-
-
-
-
-
