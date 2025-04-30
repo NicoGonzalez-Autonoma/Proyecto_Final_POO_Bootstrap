@@ -210,3 +210,30 @@ class UserUpdateManager {
 document.addEventListener('DOMContentLoaded', () => {
     const userUpdateManager = new UserUpdateManager();
 });
+
+
+/* Esto nos ayuda a previsualizar la imagen que carga el usuario */
+const imageInput = document.getElementById('file-1');
+const previewImage = document.getElementById('previewImageUser');
+
+document.addEventListener('DOMContentLoaded', function () {
+    const imageInput = document.getElementById('file-1');
+    const previewImage = document.getElementById('previewImageUser');
+    // Ruta de la imagen por defecto (puedes guardarla en una variable)
+    const defaultImage = '../assets/perfil.png';
+    imageInput.addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                previewImage.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        } else {
+            previewImage.src = defaultImage;
+            alert('Por favor selecciona un archivo de imagen válido.');
+        }
+
+       
+    });
+});

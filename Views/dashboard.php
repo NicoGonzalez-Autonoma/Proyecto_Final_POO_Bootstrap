@@ -259,10 +259,10 @@ $contactCount = countUserContacts($conn, $user_id);
 
     <!-- Modal Para Actualizar Información del Usuario-->
     <div id="updatemodalProfile"
-        style="display:none; z-index:1; position:fixed; top:20%; left:45%; transform:translateX(-50%); background:white; margin:20px; padding:20px; border:1px solid #ccc; box-shadow:0 8px 16px rgba(0,0,0,0.2); max-width:90% ;width:400px;"
+        style="display:none; z-index:1; position:fixed; top:5%; left:45%; transform:translateX(-50%); background:white; margin:20px; padding:20px; border:1px solid #ccc; box-shadow:0 8px 16px rgba(0,0,0,0.2); max-width:90% ;width:400px"
         tabindex="2">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content"  >
 
                 <form action="" method="POST" enctype="multipart/form-data">
                     <div class="modal-header">
@@ -289,7 +289,8 @@ $contactCount = countUserContacts($conn, $user_id);
 
                         <div class="mb-3">
                             <label for="file-1" class="form-label">Foto de perfil:</label>
-                            <input type="file" name="imagen-perfil" id="file-1" class="form-control">
+                            <input type="file" name="imagen-perfil" id="file-1" class="form-control" marg-5>
+                            <img id="previewImageUser" src="../Assets/perfil.png" alt="Previsualización de la imagen"    class="d-block mx-auto" style="width:100px; border-radius:50%; margin-top: 10px;">
                         </div>
                     </div>
 
@@ -435,16 +436,17 @@ $contactCount = countUserContacts($conn, $user_id);
                             <label class="form-check-label small" for="edit-is-favorite">Favorito</label>
                         </div>
 
-                        <div class="mb-2">
+                        <div class="mb-2" d-flex justify-content-center>
                             <label for="edit-profile-image" class="form-label mb-0 small">Foto de perfil:</label>
                             <input type="file" name="profile_image" id="edit-profile-image"
                                 class="form-control form-control-sm">
-                        </div>
+                            <img id="previewImage" src="../Assets/perfil.png" alt="Previsualización de la imagen"    class="d-block mx-auto" style="width:100px; border-radius:50%; margin-top: 10px;">
+                        </div>  
                     </div>
 
                     <div class="modal-footer py-1">
                         <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-sm btn-primary">Actualizar</button>
+                        <button type="submit" class="btn btn-sm btn-primary" id="update">Actualizar</button>
                     </div>
                 </form>
             </div>

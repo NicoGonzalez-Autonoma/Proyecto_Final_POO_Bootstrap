@@ -12,7 +12,7 @@ class DbConfig {
             $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $exception) {
-            die("Error de conexión: " . $exception->getMessage()); // 🚨 Si ves esto en el navegador, es un problema
+            die("Error de conexión: " . $exception->getMessage()); 
         }
         return $this->conn;
     }

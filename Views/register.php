@@ -16,9 +16,11 @@ unset($_SESSION['error']);
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/register.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 
 <body>
+    <div id="particles-js"></div>
     <?php if (!empty($error)): ?>
         <p class="error"> <?= htmlspecialchars($error) ?> </p>
     <?php endif; ?>

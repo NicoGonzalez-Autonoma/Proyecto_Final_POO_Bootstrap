@@ -1,29 +1,39 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<link rel="stylesheet" href="./CSS/index.css">
-<meta charset="UTF-8">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Agenda</title>
+    <link rel="icon" type="image/png" href="./assets/logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+        crossorigin="anonymous"></script>
 
-
-<title>Tu Agenda</title>
-<link rel="icon" type="image/png" href="./assets/logo.png">
-
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="./CSS/index.css">
+</head>
 <body>
-    <div class="body">
+    <div id="particles-js"></div>
+
+    <div class="content-wrapper">
         <div class="container-fluid">
             <!-- Fila botones -->
-            <div class="row justify-content-end">
-                <div class="col-3">
-                    <button id="btnReg" class="btn btn-primary">Registrar</button>
-                    <button id="btnLog" class="btn btn-secondary">Iniciar Sesión</button>
+            <div class="row">
+                <div class="col-12">
+                    <div class="btn-container d-flex justify-content-end">
+                        <button id="btnReg" class="btn">Registrar</button>
+                        <button id="btnLog" class="btn">Iniciar Sesión</button>
+                    </div>
                 </div>
             </div>
-            <div class="items">
-
-
+            
+            <div class="main-content">
                 <!-- Fila del título -->
                 <div class="row">
-                    <div class="col-12 text-center">
-                        <h1>Bienvenida a tu Agenda de <br> Contactos</h1>
+                    <div class="col-12">
+                        <h1>Bienvenida a tu Agenda de <br class="d-md-none"> Contactos</h1>
                     </div>
                 </div>
 
@@ -31,13 +41,18 @@
                 <div class="row">
                     <div class="col-12">
                         <h2>
-                            Estimado usuario, bienvenido a nuestra <br> agenda de contactos, aquí puedes <br> gestionar tus contactos y su información <br> de la manera que quieras <br> con mayor eficacia y eficiencia
+                            Estimado usuario, bienvenido a nuestra agenda de contactos, 
+                            aquí puedes gestionar tus contactos y su información
+                            de la manera que quieras con mayor eficacia y eficiencia
                         </h2>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Scripts -->
+   <script src="JS/jquery-3.7.1.min.js"></script>
+    <script src="JS/index.js"></script>
 </body>
-<script src="JS/jquery-3.7.1.min.js"></script>
-<script src="JS/index.js"></script>
+</html>
