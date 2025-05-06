@@ -11,7 +11,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Nunito", sans-serif;
-  background: linear-gradient(to bottom, #E2E6FF 20%, #9AA2FF 62%, #4362FF 100%);
+  background: linear-gradient(90deg, #1e59b0f2 0%, rgb(14, 114, 253) 100%);;
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;

@@ -213,27 +213,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /* Esto nos ayuda a previsualizar la imagen que carga el usuario */
-const imageInput = document.getElementById('file-1');
-const previewImage = document.getElementById('previewImageUser');
+// Obtener referencias a los botones que cierran el modal
+const closeButtons = document.querySelectorAll("#updatecloseProfile, #updatecloseProfile2");
+const submitButton = document.getElementById("submitupdateProfile");
 
-document.addEventListener('DOMContentLoaded', function () {
-    const imageInput = document.getElementById('file-1');
-    const previewImage = document.getElementById('previewImageUser');
-    // Ruta de la imagen por defecto (puedes guardarla en una variable)
-    const defaultImage = '../assets/perfil.png';
-    imageInput.addEventListener('change', function (event) {
-        const file = event.target.files[0];
-        if (file && file.type.startsWith('image/')) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                previewImage.src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        } else {
-            previewImage.src = defaultImage;
-            alert('Por favor selecciona un archivo de imagen válido.');
-        }
+// Función para resetear el formulario y la imagen
+function resetFormAndImage() {
+  // Obtener referencia al formulario
+  const form = document.querySelector("#updatemodalProfile form");
+  
+  // Resetear el formulario
+  form.reset();
+  
+  // Restablecer la imagen de previsualización a la imagen predeterminada
+  const previewImage = document.getElementById("previewImageUser");
+  previewImage.src = "../Assets/perfil.png";
+}
 
-       
-    });
+// Agregar evento de clic a los botones de cierre
+closeButtons.forEach(button => {
+  button.addEventListener("click", resetFormAndImage);
+});
+
+// También resetear después de enviar el formulario
+submitButton.addEventListener("click", function() {
+  // Resetear después de un pequeño retraso para permitir que se procese el envío
+  setTimeout(resetFormAndImage, 100);
+});
+
+// Agregar la previsualización de la imagen cuando se selecciona un archivo
+document.getElementById("file-1").addEventListener("change", function(event) {
+  const previewImage = document.getElementById("previewImageUser");
+  
+  if (this.files && this.files[0]) {
+    const reader = new FileReader();
+    
+    reader.onload = function(e) {
+      previewImage.src = e.target.result;
+    };
+    
+    reader.readAsDataURL(this.files[0]);
+  } else {
+    // Si no hay archivo seleccionado, usar la imagen predeterminada
+    previewImage.src = "../Assets/perfil.png";
+  }
 });

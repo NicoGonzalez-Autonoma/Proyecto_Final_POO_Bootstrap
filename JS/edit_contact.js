@@ -102,11 +102,10 @@ $(document).ready(function () {
 });
 
 /* Esto nos ayuda a previsualizar la imagen que carga el usuario */
-
 document.addEventListener('DOMContentLoaded', function () {
     const imageInput = document.getElementById('edit-profile-image');
     const previewImage = document.getElementById('previewImage');
-    // Ruta de la imagen por defecto (puedes guardarla en una variable)
+    // Ruta de la imagen por defecto
     const defaultImage = '../assets/perfil.png';
     imageInput.addEventListener('change', function (event) {
         const file = event.target.files[0];
